@@ -12,10 +12,13 @@ app.use(express.json());
 
 // Serve current directory static frontend files
 app.use(express.static(__dirname));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // DB Connection Settings
 const dbConfig = {
-    connectionString: "postgresql://postgres:data.jack@localhost:5432/LSA-Database"
+    connectionString: process.env.SUPBASE_DB_URL,
 };
 
 // Nodemailer Transporter
