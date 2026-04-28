@@ -32,6 +32,17 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
+// Fallback route for direct .html file requests
+app.get('/:page.html', (req, res) => {
+    const page = req.params.page;
+    const validPages = ['Dashboard', 'signup', 'login', 'index'];
+    if (validPages.includes(page)) {
+        res.sendFile(path.join(__dirname, `${page}.html`));
+    } else {
+        res.status(404).sendFile(path.join(__dirname, 'index.html'));
+    }
+});
+
 // DB Connection Settings
 const dbConfig = {
     connectionString: process.env.SUPBASE_DB_URL,
