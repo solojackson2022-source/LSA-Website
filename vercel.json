@@ -7,9 +7,6 @@
     { "src": "/styles.css", "dest": "styles.css" },
     { "src": "/script.js", "dest": "script.js" },
     { "src": "/images/(.*)", "dest": "images/$1" },
-    { "src": "/dashboard.html", "dest": "server.js" },
-    { "src": "/login.html", "dest": "server.js" },
-    { "src": "/signup.html", "dest": "server.js" },
     { "src": "/(.*)", "dest": "server.js" }
   ]
 }
